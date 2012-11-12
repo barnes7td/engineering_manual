@@ -1,0 +1,21 @@
+<h1>Pages</h1>
+<ul>
+<% @pages.each do |page| %>
+  <li>
+    <p>
+      <span><%= link_to page.title, page_path(page.id) %></span>
+      <span> - <%= page.user.name %></span>
+    </p>
+    <p>
+      <span><%= page.body %></span>
+    </p>
+  </li>
+<% end %>
+</ul>
+</br>
+<hr>
+<% if current_user %>
+  <%= link_to "Create New Page", new_page_path %>
+<% else %>
+  <p>To create a new page, <%= link_to "Sign In", new_user_session_path %>.</p>
+<% end %>

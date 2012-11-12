@@ -1,0 +1,15 @@
+<h1>Create New Page</h1>
+
+<%= form_for @page do |f| %>
+
+  <p><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+
+  <p><%= f.label :body %></p>
+  <p><%= f.text_area :body %></p>
+
+  <p><%= f.hidden_field :user_id, :value => current_user.id %></p>
+
+  <%= f.submit "Create Page" %>
+
+<% end %>
